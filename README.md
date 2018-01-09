@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Purpose
 
- - Unit Test and Integration Test of HTTP Services
+ - Unit Test and Integration Test of HTTP Services in Angular 5.0+
  - 100% functional code coverage 
 
 ## Development server
