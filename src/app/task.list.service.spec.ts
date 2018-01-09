@@ -40,6 +40,12 @@ describe('should load JSON data', () => {
         // mockRes = [];
     );
 
+    it('should create service',
+        inject([TaskListService], (taskListService) => {
+            expect(taskListService).toBeTruthy();
+        })
+    );
+
     it('should return tasks from JSON data',
         inject([TaskListService, XHRBackend], (taskListService, xhrBackend) => {
 
