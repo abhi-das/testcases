@@ -8,7 +8,6 @@ import { TaskListService } from './task.list.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
 
   constructor(private _tskSrv: TaskListService){}
 
@@ -17,7 +16,10 @@ export class AppComponent {
   	this._tskSrv.getTaskList().subscribe(res => {
   		this._tskSrv.getTaskByFlag(res['tasks'], 'completed');
   		this._tskSrv.getTaskByFlag(res['tasks'], 'notCompleted');
-  	})
+  	});
   }
+
+
+
 
 }
