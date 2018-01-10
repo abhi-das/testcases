@@ -15,6 +15,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class TaskListService {
 
+    public tmpTask = ['11', '12'];
 
     constructor(private _http: Http) {}
 
@@ -23,21 +24,28 @@ export class TaskListService {
 
         const dt = this._http.get('../data/todo_data.json')
             .map((res: Response) => {
-                return res.json();
+
+                this.tmpTask = res.json();
+                return this.tmpTask;
             });
         return dt;
     }
 
-    getTaskByFlag(task: any, flag: string): Array < any > {
+    getTaskByFlag(flag: string, tk ?: any): Array < any > {
 
         let taskLs = [];
 
+        /*
+         * tk as optional param for teesting purpose
+        */
+        const localTaksLs = this.tmpTask['tasks'] || tk['tasks'];
+
         if (flag === 'completed') {
-            taskLs = task.filter(task => {
+            taskLs = localTaksLs.filter(task => {
                 return task.status === 'completed';
             });
         } else {
-            taskLs = task.filter(task => {
+            taskLs = localTaksLs.filter(task => {
                 return task.status === 'notCompleted';
             });
         }
